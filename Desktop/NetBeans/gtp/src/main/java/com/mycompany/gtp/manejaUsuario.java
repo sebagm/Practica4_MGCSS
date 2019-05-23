@@ -8,6 +8,8 @@ import org.hibernate.HibernateException;
  */
 public class manejaUsuario extends session
 {
+    private Usuario usuario;
+    
     public boolean cambiarClave(String newPass, String reNewPass) 
     {
         if (newPass.equals(reNewPass)) 
@@ -15,7 +17,7 @@ public class manejaUsuario extends session
             try 
             {
                 iniciaOperacion();
-                Usuario usuario = (Usuario) getSesion().get(Usuario.class, 1);
+                usuario = (Usuario) getSesion().get(Usuario.class, 1);
                 String nom_usu = usuario.getUsuario();
                 finalizaOperacion();
                 

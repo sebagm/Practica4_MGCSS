@@ -11,9 +11,14 @@ import org.hibernate.Query;
  */
 public class manejaCuenta extends session
 {
+    private Cuenta cuenta;
+    
     public int crearCuenta(String usu, String clave, String desc)
     {
         int d;
+        
+        clave = cifrarClave(clave);
+        System.out.println("Clave cifrada: " + clave);
         
         try 
         {
@@ -59,4 +64,32 @@ public class manejaCuenta extends session
 
         return lista;
     }
+        
+    public String cifrarClave(String clave)
+    {
+        String cifrado;
+        char tabla[] = clave.toCharArray();
+        
+        for(int i = 0; i < tabla.length; i++)
+            tabla[i] = (char) (tabla[i] + (char) 7);
+        
+        cifrado = String.valueOf(tabla);
+        
+        return cifrado;
+    }
+    
+    
+    public String descifrarClave(String cifrado)
+    {
+        String descifrado;
+        char tabla[]= cifrado.toCharArray();
+        
+        for(int i = 0; i < tabla.length; i++)
+            tabla[i] = (char) (tabla[i] - (char) 7);
+        
+        descifrado = String.valueOf(tabla);
+        
+        return descifrado;
+    }
+    
 }

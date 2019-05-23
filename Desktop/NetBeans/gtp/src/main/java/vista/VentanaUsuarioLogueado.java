@@ -5,19 +5,24 @@
  */
 package vista;
 
+import com.mycompany.gtp.session;
+
 /**
  *
  * @author Seba Garcia
  */
 public class VentanaUsuarioLogueado extends javax.swing.JFrame {
 
+    private session s;
     private int id_usu;
     /**
      * Creates new form VentanaUsuarioLogueado
      */
-    public VentanaUsuarioLogueado(int id) {
+    public VentanaUsuarioLogueado(int id, session sesion) {
         initComponents();
+        s = sesion;
         id_usu = id;
+        
     }
 
     /**
@@ -139,6 +144,7 @@ public class VentanaUsuarioLogueado extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVerCuentasActionPerformed
 
     private void btn_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salirActionPerformed
+        s.cerrarSesion();
         System.exit(0);
     }//GEN-LAST:event_btn_salirActionPerformed
 

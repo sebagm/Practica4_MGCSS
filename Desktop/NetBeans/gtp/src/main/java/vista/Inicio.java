@@ -6,6 +6,7 @@
 package vista;
 
 import com.mycompany.gtp.conexion;
+import com.mycompany.gtp.session;
 import javax.swing.JOptionPane;
 
 /**
@@ -14,6 +15,7 @@ import javax.swing.JOptionPane;
  */
 public class Inicio extends javax.swing.JFrame 
 {
+    private session s;
     private conexion c;
     private int id_usu;
     /**
@@ -22,6 +24,7 @@ public class Inicio extends javax.swing.JFrame
     public Inicio() 
     {
         initComponents();
+        s = new session();
         c = new conexion();
         id_usu = 1;
     }
@@ -129,7 +132,7 @@ public class Inicio extends javax.swing.JFrame
             if(c.login(tf_Usuario.getText(), tf_Clave.getText()))
             {
                 JOptionPane.showMessageDialog(null, "Usuario correcto.", "Ventana de información", JOptionPane.INFORMATION_MESSAGE);
-                VentanaUsuarioLogueado vul = new VentanaUsuarioLogueado(id_usu);
+                VentanaUsuarioLogueado vul = new VentanaUsuarioLogueado(id_usu, s);
                 vul.setVisible(true);
                 this.dispose();
 
@@ -139,7 +142,6 @@ public class Inicio extends javax.swing.JFrame
                 JOptionPane.showMessageDialog(null, "Usuario incorrecto", "Ventana de información", JOptionPane.INFORMATION_MESSAGE);
             }
         }
-        
     }//GEN-LAST:event_botonEnviarActionPerformed
 
     /**

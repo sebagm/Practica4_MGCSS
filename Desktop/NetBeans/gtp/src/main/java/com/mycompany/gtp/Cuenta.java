@@ -18,9 +18,8 @@ public class Cuenta  implements java.io.Serializable
     {
     }
 
-    public Cuenta(int id, int idUsu, String usuario, String clave, String desc) 
+    public Cuenta(int idUsu, String usuario, String clave, String desc) 
     {
-       this.id = id;
        this.idUsu = idUsu;
        this.usuario = usuario;
        this.clave = clave;

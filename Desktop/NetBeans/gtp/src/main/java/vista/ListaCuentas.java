@@ -147,7 +147,7 @@ public class ListaCuentas extends javax.swing.JFrame {
         {
             Cuenta c = lc.get(0);
             columna[0] = c.getUsuario();
-            columna[1] = c.getClave();
+            columna[1] = mc.descifrarClave(c.getClave());
             columna[2] = c.getDescripcion();
             modeloTab.addRow(columna);
             lc.remove(c);
